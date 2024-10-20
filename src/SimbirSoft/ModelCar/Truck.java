@@ -2,7 +2,7 @@ package SimbirSoft.ModelCar;
 
 import java.util.Objects;
 
-public class Truck extends Car{
+public class Truck extends Car implements Drivable, Serviceable{
     private double loadingCapacity;
     private float weight;
     protected int countOfWheels;
@@ -48,5 +48,18 @@ public class Truck extends Car{
 
     public static void displayCountOfTrucks(){
         System.out.println(countOfTrucks);
+    }
+    @Override
+    public void start(){
+        System.out.println("Truck starting...");
+    }
+    @Override
+    public void stop(){
+        System.out.println("Truck stopping...");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("Truck servicing...");
     }
 }
