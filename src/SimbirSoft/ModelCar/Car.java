@@ -2,7 +2,9 @@ package SimbirSoft.ModelCar;
 import java.util.Objects;
 
 interface Drivable{
-    void stop();
+    default void stop(){
+        System.out.println("Car stopping...");
+    };
     void start();
 }
 
@@ -26,7 +28,7 @@ abstract class Car {
     }
 
 
-    public void sayBrandAndModel(){
+    public void sayBrandAndModelAndClass(){
         String classCar = "";
         if (ProductionYear < 1900){
             classCar = "rarityCar";
@@ -43,6 +45,7 @@ abstract class Car {
     public String sayTypeOfCar(){
         return TypeCar;
     }
-    public static int getCarCount(){ return countOfCar;
+    public static int getCarCount(){
+        return countOfCar;
     }
 }

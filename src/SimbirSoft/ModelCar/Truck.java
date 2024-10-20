@@ -19,16 +19,16 @@ public class Truck extends Car implements Drivable, Serviceable{
     }
     public Truck(String TypeCar, String brand, String model, int production_year, double loadingCapacity, float weight, int countOfWheels){
         super(TypeCar, brand, model, production_year);
-        loadingCapacity = loadingCapacity;
-        weight = weight;
-        countOfWheels = countOfWheels;
+        this.loadingCapacity = loadingCapacity;
+        this.weight = weight;
+        this.countOfWheels = countOfWheels;
         countOfTrucks++;
     }
     public int getCountOfWheels(){
         return countOfWheels;
     }
 
-    public void gerInfoAboutTruck(){
+    public void getInfoAboutTruck(){
         if (loadingCapacity >= 0.5 && loadingCapacity <= 2){
             classOfCapacity = "small";
         } else if (loadingCapacity > 2 && loadingCapacity <= 5){
@@ -47,7 +47,7 @@ public class Truck extends Car implements Drivable, Serviceable{
     }
 
     public static void displayCountOfTrucks(){
-        System.out.println(countOfTrucks);
+        System.out.println("Count of trucks: " + countOfTrucks);
     }
     @Override
     public void start(){
