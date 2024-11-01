@@ -1,16 +1,7 @@
 package SimbirSoft.ModelCar;
-import java.util.Objects;
 
-interface Drivable{
-    default void stop(){
-        System.out.println("Car stopping...");
-    };
-    void start();
-}
 
-interface Serviceable{
-    void service();
-}
+
 abstract class Car {
     String TypeCar;
     private String Brand;

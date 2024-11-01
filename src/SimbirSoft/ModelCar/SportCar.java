@@ -1,5 +1,7 @@
 package SimbirSoft.ModelCar;
 
+import SimbirSoft.ModelCar.Interfaces.*;
+
 public class SportCar extends Car implements Drivable, Serviceable{
 
     private int MaxSpeed;

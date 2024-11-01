@@ -1,8 +1,10 @@
 package SimbirSoft.ModelCar;
 
+import SimbirSoft.ModelCar.Interfaces.*;
+
 import java.util.Objects;
 
-public class Truck extends Car implements Drivable, Serviceable{
+public class Truck extends Car implements Drivable, Serviceable {
     private double loadingCapacity;
     private float weight;
     protected int countOfWheels;
