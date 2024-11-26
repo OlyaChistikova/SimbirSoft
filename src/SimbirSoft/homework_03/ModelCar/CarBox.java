@@ -1,18 +1,18 @@
 package SimbirSoft.homework_03.ModelCar;
 
 public class CarBox <T extends Car> {
-    private T vehicle;
+    private T car;
 
-    public CarBox(T vehicle) {
-        this.vehicle = vehicle;
+    public CarBox(T car) {
+        this.car = car;
     }
 
     public T getCar() {
-        return vehicle;
+        return car;
     }
 
-    public void setCar(T vehicle) {
-        this.vehicle = vehicle;
+    public void displayCarInfo(){
+        car.displayinfo();
     }
 }
 

@@ -1,14 +1,12 @@
 package SimbirSoft.homework_03.ModelCar;
 
 
-
-abstract class Car {
+public abstract class Car {
     String TypeCar;
-    private String Brand;
-    private String Model;
+    protected String Brand;
+    protected String Model;
     int ProductionYear;
     protected static int countOfCar = 0;
-
     public Car(String TypeCar, String Brand, String Model, int ProductionYear){
         this.TypeCar = TypeCar;
         this.Brand = Brand;
@@ -18,25 +16,7 @@ abstract class Car {
 
     }
 
+    public abstract void displayinfo();
 
-    public void sayBrandAndModelAndClass(){
-        String classCar = "";
-        if (ProductionYear < 1900){
-            classCar = "rarityCar";
-        } else if (ProductionYear < 2010){
-            classCar = "oldCar";
-        } else if (ProductionYear < 2020){
-            classCar = "modernCar";
-        } else if (ProductionYear <= 2024){
-            classCar = "newCar";
-        }
-        System.out.println("Car brand: " + Brand + ", car model: " + Model );
-        System.out.println("Classification of car: " + classCar );
-    }
-    public String sayTypeOfCar(){
-        return TypeCar;
-    }
-    public static int getCarCount(){
-        return countOfCar;
-    }
 }
+

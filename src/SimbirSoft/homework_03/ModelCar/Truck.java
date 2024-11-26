@@ -3,55 +3,22 @@ package SimbirSoft.homework_03.ModelCar;
 import SimbirSoft.homework_03.ModelCar.Interfaces.Drivable;
 import SimbirSoft.homework_03.ModelCar.Interfaces.Serviceable;
 
-import java.util.Objects;
 
 public class Truck extends Car implements Drivable, Serviceable {
     private double loadingCapacity;
     private float weight;
     protected int countOfWheels;
-    private String classOfCapacity;
     private static int countOfTrucks;
 
-    public Truck(){
-        super("Truck", "Mercedes-Benz", "Atego", 2020);
-        loadingCapacity = 8.850;
-        weight = 5485.32f;
-        countOfWheels = 4;
-        countOfTrucks++;
 
-    }
-    public Truck(String TypeCar, String brand, String model, int production_year, double loadingCapacity, float weight, int countOfWheels){
-        super(TypeCar, brand, model, production_year);
+    public Truck(String TypeCar, String Brand, String Model, int production_year, double loadingCapacity, float weight, int countOfWheels){
+        super(TypeCar, Brand, Model, production_year);
         this.loadingCapacity = loadingCapacity;
         this.weight = weight;
         this.countOfWheels = countOfWheels;
         countOfTrucks++;
     }
-    public int getCountOfWheels(){
-        return countOfWheels;
-    }
 
-    public void getInfoAboutTruck(){
-        if (loadingCapacity >= 0.5 && loadingCapacity <= 2){
-            classOfCapacity = "small";
-        } else if (loadingCapacity > 2 && loadingCapacity <= 5){
-            classOfCapacity = "middle";
-        } else if (loadingCapacity > 5 && loadingCapacity <= 16){
-            classOfCapacity = "big";
-        } else if (loadingCapacity > 16 && loadingCapacity <= 44){
-            classOfCapacity = "really big";
-        } else if (loadingCapacity < 0.5 || loadingCapacity > 44){
-            classOfCapacity = "not correct";
-        }
-        if (!Objects.equals(classOfCapacity, "not correct")){
-            System.out.println("Class of loading capacity truck is " + classOfCapacity);
-        }
-
-    }
-
-    public static void displayCountOfTrucks(){
-        System.out.println("Count of trucks: " + countOfTrucks);
-    }
     @Override
     public void start(){
         System.out.println("Truck starting...");
@@ -64,5 +31,10 @@ public class Truck extends Car implements Drivable, Serviceable {
     @Override
     public void service() {
         System.out.println("Truck servicing...");
+    }
+    @Override
+    public void displayinfo(){
+
+        System.out.println("car: " + TypeCar + ", brand: " + Brand + ", model: " + Model + ", loadingCapacity: " + loadingCapacity + ", weight: " + weight);
     }
 }

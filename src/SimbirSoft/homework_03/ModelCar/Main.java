@@ -1,40 +1,42 @@
 package SimbirSoft.homework_03.ModelCar;
 
+import SimbirSoft.homework_03.ModelCar.Interfaces.Functional.Discriminant;
+import SimbirSoft.homework_03.ModelCar.Interfaces.Functional.DivisibleBy13;
+
 public class Main {
     public static void main(String[] args) {
-        SportCar ferrari = new SportCar();
-        ferrari.sayBrandAndModelAndClass();
 
-        System.out.println("Type of car: " + ferrari.sayTypeOfCar());
-        ferrari.start();
-        ferrari.stop();
-        ferrari.sayMaxSpeedAndAcceleration();
-        ferrari.service();
+        CarBox<SportCar> mcLaren = new CarBox<>(new SportCar("SportCar","McLaren", "Speedtail", 2018, 403, 3));
+        mcLaren.displayCarInfo();
         System.out.println();
 
-        SportCar mcLaren = new SportCar("SportCar", "McLaren", "Speedtail", 2018, 403, 3);
-        mcLaren.sayBrandAndModelAndClass();
-        mcLaren.sayMaxSpeedAndAcceleration();
-        System.out.println("Type of car: " + mcLaren.sayTypeOfCar());
+        CarBox<Truck> sitrak = new CarBox<>( new Truck("Truck", "Sitrak", "C7H", 2015, 16.5, 40000, 6));
+        sitrak.displayCarInfo();
         System.out.println();
 
-        Truck mer_benz = new Truck();
-        mer_benz.sayBrandAndModelAndClass();
-        System.out.println("Type of car: " + mer_benz.sayTypeOfCar());
-        System.out.println("Count of wheels: " + mer_benz.getCountOfWheels());
-        mer_benz.getInfoAboutTruck();
+        DivisibleBy13 isDivisibleBy13 = number -> number % 13 == 0;
+        System.out.println("Number = 26"+" is divisible by 13? " + isDivisibleBy13.check(26));
+        System.out.println("Number = 33"+" is divisible by 13? " + isDivisibleBy13.check(33));
+
+        Discriminant discriminantcalculator = (a, b, c) -> b*b - 4*a*c;
+        double a = 1.0; double b =5.0; double c = 3.0;
+        double discriminant = discriminantcalculator.calculate(a, b, c);
+        System.out.println("Discriminant (" + a + "," + b + "," + c + ") = " + discriminant);
         System.out.println();
 
-        Truck sitrak = new Truck("Truck", "Sitrak", "C7H", 2015, 16.5, 40000, 6);
-        sitrak.sayBrandAndModelAndClass();
-        sitrak.start();
-        System.out.println("Type of car: " + sitrak.sayTypeOfCar());
-        sitrak.getInfoAboutTruck();
-        sitrak.stop();
-        sitrak.service();
-        System.out.println();
+        SportCar mcLaren2 = new SportCar("SportCar", "McLaren", "Speedtail", 2018, 403, 3);
+        Truck sitrak2 = new Truck("Truck", "Sitrak", "C7H", 2015, 16.5, 40000, 6);
 
-        System.out.println("Общее количество машин: " + Car.getCarCount());
-        Truck.displayCountOfTrucks();
+        CarPrinter printer = new CarPrinter();
+
+        // Печатаем информацию о каждом транспортном средстве
+        System.out.println("Printing sportcar info:");
+        printer.print(mcLaren2);
+        mcLaren2.service();
+
+        System.out.println("\nPrinting truck info:");
+        printer.print(sitrak2);
+        sitrak2.start();
+        sitrak2.stop();
     }
 }
