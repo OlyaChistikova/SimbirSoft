@@ -3,7 +3,6 @@ package SimbirSoft.homework_04;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
